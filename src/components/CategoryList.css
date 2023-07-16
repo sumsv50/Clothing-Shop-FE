@@ -1,0 +1,18 @@
+#nested-list-subheader {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+div.category-title span {
+  font-weight: 500;
+  color: black
+}
+
+div.category-title-container:hover {
+  font-weight: 500;
+  background-color: rgb(0, 0, 0);
+}
+
+div.category-title-container:hover span {
+  color: white
+}
