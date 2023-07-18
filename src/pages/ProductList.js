@@ -25,6 +25,10 @@ export default function ProductList() {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+              <button type="button" className="navbar-toggler close-menu-btn" data-toggle="collapse" data-target="#navbarCollapse">
+                X
+              </button>
+                <CategoryList />
               </div>
             </nav>
           </div>

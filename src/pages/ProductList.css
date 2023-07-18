@@ -5,3 +5,24 @@
   background-color: black;
   border-radius: 0 30px 0 0;
 }
+
+#navbarCollapse {
+  padding-top: 40px;
+  z-index: 9999;
+  position: fixed;
+  top: 0px;
+  left: -100vh;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  transition: all 0.5s;
+}
+
+#navbarCollapse.show {
+  transform: translateX(100vh);
+}
+
+.close-menu-btn {
+  font-weight: bold;
+  padding: 10px 14px;
+}
