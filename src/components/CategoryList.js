@@ -28,7 +28,7 @@ export default function CategoryList({ categories }) {
     >
       {
         categories.map(category => (
-          <ListItemButton className='category-title-container'>
+          <ListItemButton key={category.id} className='category-title-container'>
             <ListItemText className='category-title' primary={category.title} />
           </ListItemButton >
         ))

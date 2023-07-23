@@ -84,7 +84,7 @@ export default function ProductDetail() {
                     <div className="carousel-inner border">
                       {
                         product.images?.map((image, index) => (
-                          <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
+                          <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
                             <img className="w-100 h-100" src={image} alt="" />
                           </div>
                         ))
@@ -123,11 +123,8 @@ export default function ProductDetail() {
                   </div>
                   <div className="tab-content">
                     <div className="tab-pane fade show active" id="tab-pane-1">
-                      <p>
-                        <div dangerouslySetInnerHTML={{ __html: product.details }} >
-
-                        </div>
-                      </p>
+                      <div dangerouslySetInnerHTML={{ __html: product.details }} >
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import OwlCarousel from 'react-owl-carousel';
 import CategoryList from "../components/CategoryList"
 import ProductItem from "../components/ProductItem"
@@ -35,7 +35,6 @@ export default function ProductList() {
         categoryParents.forEach(category => {
           category.products = list[category.id] ?? []
         })
-        console.log(categoryParents)
         setCategories(categoryParents)
       } catch (err) {
         console.log(err)
@@ -46,7 +45,6 @@ export default function ProductList() {
     async function getPartners() {
       try {
         const partnersRes = await request.get('v1/clothing/api/partners')
-        console.log("partner: ", partnersRes.partners)
         setPartners(partnersRes.partners)
       } catch (err) {
         console.log(err)
@@ -112,16 +110,16 @@ export default function ProductList() {
                   {
                     categories.map(category => (
                       category.products.length > 0
-                        ? <>
-                          <div className="col-lg-12 mb-4 mt-3">
+                        ? <React.Fragment key={category.id}>
+                          <div key={category.id} className="col-lg-12 mb-4 mt-3">
                             <h3 className="product-category-section">{category.title}</h3>
                           </div>
                           {
                             category.products.map(product => (
-                              <ProductItem product={product} />
+                              <ProductItem key={category.id + product.id} product={product} />
                             ))
                           }
-                        </>
+                        </React.Fragment>
                         : ""
                     ))
                   }
@@ -139,7 +137,7 @@ export default function ProductList() {
                   <OwlCarousel className='owl-theme' loop center margin={20} items={3} autoPlay>
                     {
                       partners.map(partner => (
-                        <div className="text-center item">
+                        <div key={partner.id} className="text-center item">
                           <div className="vendor-item border p-4">
                             <img src={partner.image} alt="" />
                           </div>
