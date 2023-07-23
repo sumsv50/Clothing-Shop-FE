@@ -11,6 +11,7 @@ export default function ProductList() {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
+    document.title = "Bảo hộ Phú Nhuận";
     getProducts()
     getPartners()
     async function getProducts() {

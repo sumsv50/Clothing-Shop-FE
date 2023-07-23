@@ -1,0 +1,8 @@
+.product-img:hover {
+  cursor: pointer;
+}
+
+.product-title:hover {
+  cursor: pointer;
+  color: #FF7F00
+}
