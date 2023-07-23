@@ -4,6 +4,11 @@
   color: white;
   background-color: black;
   border-radius: 0 30px 0 0;
+  text-transform: uppercase;
+}
+
+.category-title {
+  text-transform: uppercase;
 }
 
 #navbarCollapse {
@@ -13,16 +18,26 @@
   top: 0px;
   left: -100vh;
   width: 100vw;
-  height: 100vh;
+  height: 0;
   background-color: white;
   transition: all 0.5s;
 }
 
 #navbarCollapse.show {
   transform: translateX(100vh);
+  height: 100vh;
+  overflow: hidden
 }
 
 .close-menu-btn {
   font-weight: bold;
   padding: 10px 14px;
+}
+
+.price-text {
+  color: #991b25
+}
+
+.vendor-container {
+  max-width: 1200px;
 }

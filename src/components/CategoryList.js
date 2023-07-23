@@ -8,7 +8,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import './CategoryList.css'
 
-export default function CategoryList() {
+export default function CategoryList({ categories }) {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => { 
@@ -26,13 +26,14 @@ export default function CategoryList() {
         </ListSubheader>
       }
     >
-      <ListItemButton className='category-title-container'>
-        <ListItemText className='category-title' primary="ĐỒNG PHỤC BẢO VỆ" />
-      </ListItemButton >
-      <ListItemButton className='category-title-container'>
-        <ListItemText className='category-title' primary="NÓN BẢO HỘ LAO ĐỘNG" />
-      </ListItemButton>
-      <ListItemButton className='category-title-container' onClick={handleClick}>
+      {
+        categories.map(category => (
+          <ListItemButton className='category-title-container'>
+            <ListItemText className='category-title' primary={category.title} />
+          </ListItemButton >
+        ))
+      }
+      {/* <ListItemButton className='category-title-container' onClick={handleClick}>
         <ListItemText className='category-title' primary="GIÀY BAO HỘ LAO ĐỘNG" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
@@ -47,7 +48,7 @@ export default function CategoryList() {
             <ListItemText className='category-title' primary="🔸 Giày bảo hộ PKL" />
           </ListItemButton>
         </List>
-      </Collapse>
+      </Collapse> */}
     </List>
   );
 }

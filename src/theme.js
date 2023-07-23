@@ -30,7 +30,7 @@ export const theme = createTheme({
     MuiListSubheader: {
       styleOverrides: {
         root: {
-          fontSize: '1.5rem',
+          fontSize: '1.25rem',
           display: 'inline-block',
           lineHeight: '1.2',
           padding: '8px 12px',  
