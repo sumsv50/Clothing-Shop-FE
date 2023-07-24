@@ -13,14 +13,14 @@ export default function ProductList() {
 
   useEffect(() => {
     document.title = "Bảo hộ Phú Nhuận";
-    getPartners()
     getProducts()
     async function getProducts() {
       try {
         setIsLoading(true);
-        const [productRes, categoryRes] = await Promise.all([
+        const [productRes, categoryRes, partnersRes] = await Promise.all([
           request.get('v1/clothing/api/products'),
-          request.get('v1/clothing/api/category/parent')
+          request.get('v1/clothing/api/category/parent'),
+          request.get('v1/clothing/api/partners')
         ])
         const products = productRes.products
         const categoryParents = categoryRes.categoryParents
@@ -35,19 +35,12 @@ export default function ProductList() {
         categoryParents.forEach(category => {
           category.products = list[category.id] ?? []
         })
+        setPartners(partnersRes.partners)
         setCategories(categoryParents)
       } catch (err) {
         console.log(err)
       } finally {
         setIsLoading(false)
-      }
-    }
-    async function getPartners() {
-      try {
-        const partnersRes = await request.get('v1/clothing/api/partners')
-        setPartners(partnersRes.partners)
-      } catch (err) {
-        console.log(err)
       }
     }
   }, [])
