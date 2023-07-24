@@ -106,23 +106,25 @@ export default function ProductList() {
                 <div className="col-lg-3 pl-xl-5 d-none d-lg-block mt-3">
                   <CategoryList categories={categories} />
                 </div>
-                <div className="row col-lg-9 px-xl-5 pb-3">
-                  {
-                    categories.map(category => (
-                      category.products.length > 0
-                        ? <React.Fragment key={category.id}>
-                          <div key={category.id} className="col-lg-12 mb-4 mt-3">
-                            <h3 className="product-category-section">{category.title}</h3>
-                          </div>
-                          {
-                            category.products.map(product => (
-                              <ProductItem key={category.id + product.id} product={product} />
-                            ))
-                          }
-                        </React.Fragment>
-                        : ""
-                    ))
-                  }
+                <div className="col-lg-9 px-xl-5 pb-3">
+                  <div className="row">
+                    {
+                      categories.map(category => (
+                        category.products.length > 0
+                          ? <React.Fragment key={category.id}>
+                            <div key={category.id} className="col-lg-12 mb-4 mt-3">
+                              <h3 className="product-category-section">{category.title}</h3>
+                            </div>
+                            {
+                              category.products.map(product => (
+                                <ProductItem key={category.id + product.id} product={product} />
+                              ))
+                            }
+                          </React.Fragment>
+                          : ""
+                      ))
+                    }
+                  </div>
 
                 </div>
               </div>
