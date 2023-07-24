@@ -13,8 +13,8 @@ export default function ProductList() {
 
   useEffect(() => {
     document.title = "Bảo hộ Phú Nhuận";
-    getProducts()
     getPartners()
+    getProducts()
     async function getProducts() {
       try {
         setIsLoading(true);
