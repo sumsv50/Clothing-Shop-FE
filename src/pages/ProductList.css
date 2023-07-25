@@ -41,3 +41,74 @@
 .vendor-container {
   max-width: 1200px;
 }
+
+.zalo-icon {
+  position: fixed;
+  right: 14px;
+  bottom: 180px;
+  z-index: 9999;
+}
+
+.zalo-icon img {
+  width: 60px;
+  animation: tilt-shaking 0.5s infinite;
+}
+
+.zalo-icon::before,
+.zalo-icon::after {
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.zalo-icon::before,
+.zalo-icon::after {
+  animation: ripple 2s infinite;
+}
+.zalo-icon::before {
+  animation-delay: 0.9s;
+}
+
+.zalo-icon::after {
+  animation-delay: 0.5s;
+}
+
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(0eg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(243, 18, 18, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 0 25px rgba(243, 18, 18, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(243, 18, 18, 0);
+  }
+}

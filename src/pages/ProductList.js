@@ -171,6 +171,9 @@ export default function ProductList() {
               </div>
 
               <a href="#" className="btn btn-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
+              <a href="https://zalo.me/0924181058" target="_blank" className="zalo-icon" rel="noopener noreferrer">
+                <img className="cmn" src="/img/zalo-icon.png" alt="Zalo icon" />
+              </a>
             </div>
           </>
       }
