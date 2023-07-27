@@ -8,10 +8,10 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import './CategoryList.css'
 
-export default function CategoryList({ categories, onSelectCategory }) {
+export default function CategoryList({ categories, onSelectCategory, isMobile }) {
   const [open, setOpen] = React.useState(true);
 
-  const handleClick = () => { 
+  const handleClick = () => {
     setOpen(!open);
   };
 
@@ -28,9 +28,13 @@ export default function CategoryList({ categories, onSelectCategory }) {
     >
       {
         categories.map(category => (
-          <ListItemButton key={category.id} className='category-title-container' onClick={() => onSelectCategory(category.id)} data-toggle="collapse" data-target="#navbarCollapse">
-            <ListItemText className='category-title' primary={category.title} />
-          </ListItemButton >
+          isMobile
+            ? <ListItemButton key={category.id} className='category-title-container' onClick={() => onSelectCategory(category.id)} data-toggle="collapse" data-target="#navbarCollapse">
+              <ListItemText className='category-title' primary={category.title} />
+            </ListItemButton >
+            : <ListItemButton key={category.id} className='category-title-container' onClick={() => onSelectCategory(category.id)}>
+              <ListItemText className='category-title' primary={category.title} />
+            </ListItemButton >
         ))
       }
       {/* <ListItemButton className='category-title-container' onClick={handleClick}>

@@ -79,7 +79,7 @@ export default function ProductList() {
                 <button type="button" className="navbar-toggler close-menu-btn" data-toggle="collapse" data-target="#navbarCollapse">
                   X
                 </button>
-                <CategoryList categories={onlyCategories} onSelectCategory={handleSelectCategory} />
+                <CategoryList categories={onlyCategories} onSelectCategory={handleSelectCategory} isMobile={true} />
               </div>
             </nav>
           </div>
