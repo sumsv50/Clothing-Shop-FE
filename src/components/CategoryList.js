@@ -8,7 +8,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import './CategoryList.css'
 
-export default function CategoryList({ categories }) {
+export default function CategoryList({ categories, onSelectCategory }) {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => { 
@@ -28,7 +28,7 @@ export default function CategoryList({ categories }) {
     >
       {
         categories.map(category => (
-          <ListItemButton key={category.id} className='category-title-container'>
+          <ListItemButton key={category.id} className='category-title-container' onClick={() => onSelectCategory(category.id)} data-toggle="collapse" data-target="#navbarCollapse">
             <ListItemText className='category-title' primary={category.title} />
           </ListItemButton >
         ))

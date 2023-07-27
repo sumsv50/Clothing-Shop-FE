@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import OwlCarousel from 'react-owl-carousel';
 import CategoryList from "../components/CategoryList"
 import ProductItem from "../components/ProductItem"
@@ -10,6 +10,13 @@ export default function ProductList() {
   const [isLoading, setIsLoading] = useState(true)
   const [partners, setPartners] = useState([])
   const [categories, setCategories] = useState([])
+  const [onlyCategories, setOnlyCategory] = useState([])
+  const categoriesStore = useRef([])
+
+  function handleSelectCategory(categoryId) {
+    const category = categoriesStore.current.find(category => category.id === categoryId)
+    setCategories([category])
+  }
 
   useEffect(() => {
     document.title = "Bảo hộ Phú Nhuận";
@@ -32,9 +39,11 @@ export default function ProductList() {
             list[product.categoryParentId] = [product]
           }
         })
+        setOnlyCategory(categoryParents)
         categoryParents.forEach(category => {
           category.products = list[category.id] ?? []
         })
+        categoriesStore.current = categoryParents
         setPartners(partnersRes.partners)
         setCategories(categoryParents)
       } catch (err) {
@@ -70,7 +79,7 @@ export default function ProductList() {
                 <button type="button" className="navbar-toggler close-menu-btn" data-toggle="collapse" data-target="#navbarCollapse">
                   X
                 </button>
-                <CategoryList categories={categories} />
+                <CategoryList categories={onlyCategories} onSelectCategory={handleSelectCategory} />
               </div>
             </nav>
           </div>
@@ -97,21 +106,23 @@ export default function ProductList() {
             <div className="container-fluid pt-5">
               <div className="row">
                 <div className="col-lg-3 pl-xl-5 d-none d-lg-block mt-3">
-                  <CategoryList categories={categories} />
+                  <CategoryList categories={onlyCategories} onSelectCategory={handleSelectCategory} />
                 </div>
                 <div className="col-lg-9 px-xl-5 pb-3">
                   <div className="row">
                     {
                       categories.map(category => (
-                        category.products.length > 0
+                        category.products.length > 0 || categories.length === 1
                           ? <React.Fragment key={category.id}>
                             <div key={category.id} className="col-lg-12 mb-4 mt-3">
                               <h3 className="product-category-section">{category.title}</h3>
                             </div>
                             {
-                              category.products.map(product => (
-                                <ProductItem key={category.id + product.id} product={product} />
-                              ))
+                              category.products.length > 0
+                                ? category.products.map(product => (
+                                  <ProductItem key={category.id + product.id} product={product} />
+                                ))
+                                : <div className="col-lg-12 ">Hiện chưa có sản phẩm nào!</div>
                             }
                           </React.Fragment>
                           : ""
