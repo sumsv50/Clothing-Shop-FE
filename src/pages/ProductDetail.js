@@ -52,9 +52,9 @@ export default function ProductDetail() {
         <div className="row border-top px-xl-5">
           <div className="col-lg-9">
             <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-              <a href="" className="text-decoration-none d-block d-lg-none">
+              <Link to="/" className="text-decoration-none d-block d-lg-none">
                 <h2 className="m-0 display-5 font-weight-semi-bold">Bảo hộ Phú Nhuận</h2>
-              </a>
+              </Link>
               <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
               </button>
