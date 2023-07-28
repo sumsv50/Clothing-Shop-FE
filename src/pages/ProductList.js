@@ -12,11 +12,29 @@ export default function ProductList() {
   const [partners, setPartners] = useState([])
   const [categories, setCategories] = useState([])
   const [onlyCategories, setOnlyCategory] = useState([])
+  const [textSearch, setTextSearch] = useState("")
   const categoriesStore = useRef([])
 
   function handleSelectCategory(categoryId) {
     const category = categoriesStore.current.find(category => category.id === categoryId)
     setCategories([category])
+  }
+
+  function handleSearch() {
+    if (textSearch === "") {
+      return
+    }
+    const categories = categoriesStore.current
+    const filteredProducts = categories.reduce((acc, curr) => {
+      const products = curr.products.filter(product => product.title.toLowerCase().includes(textSearch.toLowerCase()))
+      acc.push(...products)
+      return acc
+    }, [])
+    setCategories([{
+      id: "KQTK",
+      title: "Kết quả tìm kiếm",
+      products: filteredProducts
+    }])
   }
 
   useEffect(() => {
@@ -60,9 +78,9 @@ export default function ProductList() {
       <div className="container-fluid">
         <div className="row align-items-center py-3 px-xl-5">
           <div className="col-lg-3 d-none d-lg-block">
-            <Link to="/" className="text-decoration-none">
+            <a href="/" className="text-decoration-none">
               <h3 className="m-0 display-5 font-weight-semi-bold">Bảo hộ Phú Nhuận</h3>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -71,9 +89,9 @@ export default function ProductList() {
         <div className="row border-top px-xl-5">
           <div className="col-lg-9">
             <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-              <Link to="/" className="text-decoration-none d-block d-lg-none">
+              <a href="/" className="text-decoration-none d-block d-lg-none">
                 <h2 className="m-0 display-5 font-weight-semi-bold">Bảo hộ Phú Nhuận</h2>
-              </Link>
+              </a>
               <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -94,8 +112,19 @@ export default function ProductList() {
               <div className="px-xl-5 col-lg-6 col-12 text-left float-right">
                 <form action="">
                   <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Tìm kiếm sản phẩm" />
-                    <div className="input-group-append">
+                    <input type="text"
+                      className="form-control"
+                      placeholder="Tìm kiếm sản phẩm"
+                      value={textSearch}
+                      onChange={(e) => setTextSearch(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault()
+                          handleSearch()
+                        }
+                      }}
+                    />
+                    <div className="input-group-append" onClick={handleSearch}>
                       <span className="input-group-text bg-transparent text-primary">
                         <i className="fa fa-search"></i>
                       </span>
