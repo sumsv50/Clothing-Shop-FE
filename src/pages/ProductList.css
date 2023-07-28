@@ -7,10 +7,6 @@
   text-transform: uppercase;
 }
 
-.category-title {
-  text-transform: uppercase;
-}
-
 #navbarCollapse {
   padding-top: 40px;
   z-index: 9999;
@@ -46,7 +42,7 @@
   position: fixed;
   right: 14px;
   bottom: 180px;
-  z-index: 9999;
+  z-index: 998;
 }
 
 .zalo-icon img {

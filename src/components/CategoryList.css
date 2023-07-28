@@ -3,9 +3,21 @@
   margin-bottom: 10px;
 }
 
+.category-title {
+  text-transform: uppercase;
+  padding-top: 8px;
+  padding-bottom: 8px
+}
+
 div.category-title span {
   font-weight: 500;
   color: black
+}
+
+div.category-title-container {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
 }
 
 div.category-title-container:hover {
@@ -15,4 +27,8 @@ div.category-title-container:hover {
 
 div.category-title-container:hover span {
   color: white
+}
+
+.category-collapse-icon {
+  padding: 8px
 }

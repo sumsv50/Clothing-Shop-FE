@@ -9,10 +9,14 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import './CategoryList.css'
 
 export default function CategoryList({ categories, onSelectCategory, isMobile }) {
-  const [open, setOpen] = React.useState(true);
+  const [openId, setOpenId] = React.useState(null);
+  const optPros = isMobile ? {
+    "data-toggle": "collapse",
+    "data-target": "#navbarCollapse"
+  } : {}
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleClick = (categoryId) => {
+    setOpenId(categoryId)
   };
 
   return (
@@ -28,31 +32,37 @@ export default function CategoryList({ categories, onSelectCategory, isMobile })
     >
       {
         categories.map(category => (
-          isMobile
-            ? <ListItemButton key={category.id} className='category-title-container' onClick={() => onSelectCategory(category.id)} data-toggle="collapse" data-target="#navbarCollapse">
-              <ListItemText className='category-title' primary={category.title} />
+          <>
+            <ListItemButton key={category.id} className='category-title-container'>
+              <ListItemText
+                className='category-title'
+                primary={category.title}
+                onClick={() => { handleClick(null); onSelectCategory(category.id) }}
+                {...optPros}
+              />
+              {category.child.length
+                ? <div className='category-collapse-icon'>
+                  {openId === category.id
+                    ? <ExpandLess onClick={() => handleClick(null)} />
+                    : <ExpandMore onClick={() => handleClick(category.id)} />}
+                </div>
+                : ""
+              }
             </ListItemButton >
-            : <ListItemButton key={category.id} className='category-title-container' onClick={() => onSelectCategory(category.id)}>
-              <ListItemText className='category-title' primary={category.title} />
-            </ListItemButton >
+            <Collapse in={openId === category.id} timeout="auto" unmountOnExit>
+              {
+                category.child.map(child => (
+                  <List component="div" disablePadding>
+                    <ListItemButton {...optPros} className='category-title-container' sx={{ pl: 4 }} onClick={() => { onSelectCategory(child.id) }}>
+                      <ListItemText className='category-title' primary={child.title} />
+                    </ListItemButton>
+                  </List>
+                ))
+              }
+            </Collapse>
+          </>
         ))
       }
-      {/* <ListItemButton className='category-title-container' onClick={handleClick}>
-        <ListItemText className='category-title' primary="GIÀY BAO HỘ LAO ĐỘNG" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton className='category-title-container' sx={{ pl: 4 }}>
-            <ListItemText className='category-title' primary="🔸 Giày bảo hộ NTT" />
-          </ListItemButton>
-        </List>
-        <List component="div" disablePadding>
-          <ListItemButton className='category-title-container' sx={{ pl: 4 }}>
-            <ListItemText className='category-title' primary="🔸 Giày bảo hộ PKL" />
-          </ListItemButton>
-        </List>
-      </Collapse> */}
     </List>
   );
 }

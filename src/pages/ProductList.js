@@ -40,10 +40,11 @@ export default function ProductList() {
           }
         })
         setOnlyCategory(categoryParents)
-        categoryParents.forEach(category => {
+        const flatCategoryParents = categoryParents.reduce((acc, current) => [...acc, current, ...current.child], [])
+        flatCategoryParents.forEach(category => {
           category.products = list[category.id] ?? []
         })
-        categoriesStore.current = categoryParents
+        categoriesStore.current = flatCategoryParents
         setPartners(partnersRes.partners)
         setCategories(categoryParents)
       } catch (err) {
