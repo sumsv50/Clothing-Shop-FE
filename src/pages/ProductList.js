@@ -89,7 +89,7 @@ export default function ProductList() {
       {
         isLoading ? <OvalLoading /> :
           <>
-            <div className="container-fluid pt-5 mb-4">
+            <div className="container-fluid pt-2 mb-4">
               <div className="px-xl-5 col-lg-6 col-12 text-left float-right">
                 <form action="">
                   <div className="input-group">
