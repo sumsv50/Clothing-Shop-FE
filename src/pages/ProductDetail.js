@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import CategoryList from "../components/CategoryList"
 import OvalLoading from "../components/OvalLoading";
 
@@ -10,7 +10,12 @@ export default function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true)
   const [categories, setCategories] = useState([])
   const [product, setProduct] = useState({})
+  const navigate = useNavigate();
   const { productId } = useParams()
+
+  function handleSelectCategory(categoryId) {
+    navigate(`/?category=${categoryId}`)
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -62,7 +67,7 @@ export default function ProductDetail() {
                 <button type="button" className="navbar-toggler close-menu-btn" data-toggle="collapse" data-target="#navbarCollapse">
                   X
                 </button>
-                <CategoryList categories={categories} />
+                <CategoryList categories={categories} onSelectCategory={handleSelectCategory} />
               </div>
             </nav>
           </div>

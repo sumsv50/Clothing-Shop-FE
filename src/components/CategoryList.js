@@ -32,7 +32,7 @@ export default function CategoryList({ categories, onSelectCategory, isMobile })
     >
       {
         categories.map(category => (
-          <>
+          <React.Fragment key={category.id}>
             <ListItemButton key={category.id} className='category-title-container'>
               <ListItemText
                 className='category-title'
@@ -52,7 +52,7 @@ export default function CategoryList({ categories, onSelectCategory, isMobile })
             <Collapse in={openId === category.id} timeout="auto" unmountOnExit>
               {
                 category.child.map(child => (
-                  <List component="div" disablePadding>
+                  <List key={child.id} component="div" disablePadding>
                     <ListItemButton {...optPros} className='category-title-container' sx={{ pl: 4 }} onClick={() => { onSelectCategory(child.id) }}>
                       <ListItemText className='category-title' primary={child.title} />
                     </ListItemButton>
@@ -60,7 +60,7 @@ export default function CategoryList({ categories, onSelectCategory, isMobile })
                 ))
               }
             </Collapse>
-          </>
+          </React.Fragment>
         ))
       }
     </List>

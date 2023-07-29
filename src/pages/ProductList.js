@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import { useSearchParams } from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import CategoryList from "../components/CategoryList"
 import ProductItem from "../components/ProductItem"
@@ -14,9 +15,11 @@ export default function ProductList() {
   const [onlyCategories, setOnlyCategory] = useState([])
   const [textSearch, setTextSearch] = useState("")
   const categoriesStore = useRef([])
+  const [searchParams, setSearchParams] = useSearchParams();
 
   function handleSelectCategory(categoryId) {
     const category = categoriesStore.current.find(category => category.id === categoryId)
+    setSearchParams({"category": categoryId})
     setCategories([category])
   }
 
@@ -65,7 +68,12 @@ export default function ProductList() {
         })
         categoriesStore.current = flatCategoryParents
         setPartners(partnersRes.partners)
-        setCategories(categoryParents)
+  
+        if (searchParams.get("category")) {
+          handleSelectCategory(searchParams.get("category"))
+        } else {
+          setCategories(categoryParents)
+        }
       } catch (err) {
         console.log(err)
       } finally {
