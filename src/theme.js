@@ -17,7 +17,7 @@ export const theme = createTheme({
         // Name of the slot
         root: {
           // Some CSS
-          fontSize: '1.2rem',
+          fontSize: '1.1rem',
         },
         h4: {
           fontSize: '2.25rem'
@@ -30,7 +30,7 @@ export const theme = createTheme({
     MuiListSubheader: {
       styleOverrides: {
         root: {
-          fontSize: '1.25rem',
+          fontSize: '1.1rem',
           display: 'inline-block',
           lineHeight: '1.2',
           padding: '8px 12px',  

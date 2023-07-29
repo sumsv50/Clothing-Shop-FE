@@ -41,7 +41,7 @@ export default function CategoryList({ categories, onSelectCategory, isMobile })
                 {...optPros}
               />
               {category.child.length
-                ? <div className='category-collapse-icon'>
+                ? <div className={`category-collapse-icon ${isMobile ? "category-collapse-icon-border" : ""}`}>
                   {openId === category.id
                     ? <ExpandLess onClick={() => handleClick(null)} />
                     : <ExpandMore onClick={() => handleClick(category.id)} />}

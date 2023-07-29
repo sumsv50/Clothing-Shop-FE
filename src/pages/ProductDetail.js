@@ -46,7 +46,7 @@ export default function ProductDetail() {
         <div className="row align-items-center py-3 px-xl-5">
           <div className="col-lg-3 d-none d-lg-block">
             <Link to="/" className="text-decoration-none">
-              <h3 className="m-0 display-5 font-weight-semi-bold">Bảo hộ Phú Nhuận</h3>
+              <h2 className="m-0 display-5 font-weight-semi-bold branch-desktop">Bảo hộ Phú Nhuận</h2>
             </Link>
           </div>
         </div>
