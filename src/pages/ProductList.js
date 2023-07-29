@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react"
-import { Link } from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import CategoryList from "../components/CategoryList"
 import ProductItem from "../components/ProductItem"
 import OvalLoading from "../components/OvalLoading";
 import "./ProductList.css"
 import { request } from "../util/request"
+import { hideKeyboard } from "../util/keyboard";
 
 export default function ProductList() {
   const [isLoading, setIsLoading] = useState(true)
@@ -120,6 +120,7 @@ export default function ProductList() {
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') {
                           e.preventDefault()
+                          hideKeyboard(e.target)
                           handleSearch()
                         }
                       }}
