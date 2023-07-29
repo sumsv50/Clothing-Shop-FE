@@ -33,11 +33,15 @@ export default function ProductList() {
       acc.push(...products)
       return acc
     }, [])
+    setIsLoading(true)
     setCategories([{
       id: "KQTK",
-      title: "Kết quả tìm kiếm",
+      title: "🔍 Kết quả tìm kiếm",
       products: filteredProducts
     }])
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 500)
   }
 
   useEffect(() => {
