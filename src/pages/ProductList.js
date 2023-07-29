@@ -180,7 +180,16 @@ export default function ProductList() {
               </div>
               <div className="row px-xl-5 py-5 justify-content-center">
                 <div className="col vendor-container">
-                  <OwlCarousel className='owl-theme' loop center margin={20} items={3} autoPlay>
+                  <OwlCarousel
+                    className='owl-theme'
+                    loop
+                    center
+                    margin={20}
+                    items={3}
+                    autoplay={true}
+                    autoplaySpeed={1000}
+                    autoplayTimeout={2500}
+                  >
                     {
                       partners.map(partner => (
                         <div key={partner.id} className="text-center item">
