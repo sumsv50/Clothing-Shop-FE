@@ -128,8 +128,9 @@ export default function ProductList() {
             <div className="container-fluid pt-2 mb-4">
               <div className="row justify-content-end">
                 <div className="px-xl-5 col-lg-5 col-12 text-left mb-4 mb-lg-0 hotline-container">
+                  <h3>Hotline:</h3>
                   <h3>
-                    <span>Hotline:&nbsp;</span> <i class="fas fa-phone-alt phone-icon"></i>
+                    <i class="fas fa-phone-alt phone-icon"></i>
                     <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>
                     <a className="text-phone-number" href="tel:0399171058">0389.271.068</a>
                   </h3>

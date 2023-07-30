@@ -109,11 +109,6 @@
   }
 }
 
-.hotline-container {
-  min-width: 390px;
-  margin-top: 5px;
-}
-
 .text-phone-number, .text-phone-number:hover {
   color: black;
   background-color: yellow;

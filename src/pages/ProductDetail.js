@@ -75,9 +75,10 @@ export default function ProductDetail() {
       </div>
 
       <div className="container-fluid mb-4 text-center">
+        <h3>Hotline:</h3>
         <h3>
-          <span>&nbsp;Hotline:&nbsp;</span> <i class="fas fa-phone-alt phone-icon"></i>
-          <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>
+          <i class="fas fa-phone-alt phone-icon"></i>
+          <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>
           <a className="text-phone-number" href="tel:0399171058">0389.271.068</a>
         </h3>
       </div>
