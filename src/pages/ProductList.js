@@ -220,8 +220,7 @@ export default function ProductList() {
                   <a href="" className="text-decoration-none">
                     <h3 className="mb-4 display-5 font-weight-semi-bold"> Bảo hộ Phú Nhuận </h3>
                   </a>
-                  <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore
-                    amet erat.</p>
+                  <p>Bảo Hộ Phú Nhuận là đơn vị chuyên cung cấp các mặt hàng đồ bảo hộ lao động cho các công trình xây dựng và nhà máy</p>
                   <p className="mb-2"><i className="fa fa-map-marker-alt text-primary mr-3"></i>210B Hồ Văn Huê, Phường 9, Phú Nhuận,
                     Thành phố Hồ Chí Minh</p>
                   <p className="mb-2"><i className="fa fa-envelope text-primary mr-3"></i>baohophunhuan@gmail.com</p>
