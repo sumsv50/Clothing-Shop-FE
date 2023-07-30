@@ -53,7 +53,7 @@ export default function ProductDetail() {
       </div>
 
 
-      <div className="container-fluid mb-5">
+      <div className="container-fluid mb-3">
         <div className="row border-top px-xl-5">
           <div className="col-lg-9">
             <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
@@ -74,6 +74,13 @@ export default function ProductDetail() {
         </div>
       </div>
 
+      <div className="container-fluid mb-4 text-center">
+        <h3>
+          <span>&nbsp;Hotline:&nbsp;</span> <i class="fas fa-phone-alt phone-icon"></i>
+          <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>
+          <a className="text-phone-number" href="tel:0399171058">0389.271.068</a>
+        </h3>
+      </div>
       <div className="container-fluid bg-secondary mb-5">
         <div className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "100px" }}>
           <h1 className="font-weight-semi-bold text-uppercase mb-3">Chi tiết sản phẩm</h1>

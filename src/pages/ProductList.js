@@ -19,7 +19,7 @@ export default function ProductList() {
 
   function handleSelectCategory(categoryId) {
     const category = categoriesStore.current.find(category => category.id === categoryId)
-    setSearchParams({"category": categoryId})
+    setSearchParams({ "category": categoryId })
     setCategories([category])
   }
 
@@ -72,7 +72,7 @@ export default function ProductList() {
         })
         categoriesStore.current = flatCategoryParents
         setPartners(partnersRes.partners)
-  
+
         if (searchParams.get("category")) {
           handleSelectCategory(searchParams.get("category"))
         } else {
@@ -97,7 +97,7 @@ export default function ProductList() {
         </div>
       </div>
 
-      <div className="container-fluid mb-5">
+      <div className="container-fluid mb-2 mb-lg-4">
         <div className="row border-top px-xl-5">
           <div className="col-lg-9">
             <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
@@ -126,33 +126,42 @@ export default function ProductList() {
         isLoading ? <OvalLoading /> :
           <>
             <div className="container-fluid pt-2 mb-4">
-              <div className="px-xl-5 col-lg-4 col-12 text-left float-right">
-                <form action="">
-                  <div className="input-group">
-                    <input type="text"
-                      className="form-control"
-                      placeholder="Tìm kiếm sản phẩm"
-                      value={textSearch}
-                      onChange={(e) => setTextSearch(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          e.preventDefault()
-                          hideKeyboard(e.target)
-                          handleSearch()
-                        }
-                      }}
-                    />
-                    <div className="input-group-append" onClick={handleSearch}>
-                      <span className="input-group-text bg-transparent text-primary">
-                        <i className="fa fa-search"></i>
-                      </span>
+              <div className="row justify-content-end">
+                <div className="px-xl-5 col-lg-5 col-12 text-left mb-4 mb-lg-0 hotline-container">
+                  <h3>
+                    <span>Hotline:&nbsp;</span> <i class="fas fa-phone-alt phone-icon"></i>
+                    <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>
+                    <a className="text-phone-number" href="tel:0399171058">0389.271.068</a>
+                  </h3>
+                </div>
+                <div className="px-xl-5 col-lg-4 col-12 text-left">
+                  <form action="">
+                    <div className="input-group">
+                      <input type="text"
+                        className="form-control"
+                        placeholder="Tìm kiếm sản phẩm"
+                        value={textSearch}
+                        onChange={(e) => setTextSearch(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault()
+                            hideKeyboard(e.target)
+                            handleSearch()
+                          }
+                        }}
+                      />
+                      <div className="input-group-append" onClick={handleSearch}>
+                        <span className="input-group-text bg-transparent text-primary">
+                          <i className="fa fa-search"></i>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
 
-            <div className="container-fluid pt-5">
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-lg-3 pl-xl-5 d-none d-lg-block mt-3">
                   <CategoryList categories={onlyCategories} onSelectCategory={handleSelectCategory} />
