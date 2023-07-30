@@ -22,7 +22,7 @@ div.category-title-container {
 
 div.category-title-container:hover {
   font-weight: 500;
-  background-color: rgb(0, 0, 0);
+  background-color: #ffb805;
 }
 
 div.category-title-container:hover span {
