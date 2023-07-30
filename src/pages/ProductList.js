@@ -111,7 +111,12 @@ export default function ProductList() {
                 <button type="button" className="navbar-toggler close-menu-btn" data-toggle="collapse" data-target="#navbarCollapse">
                   X
                 </button>
-                <CategoryList categories={onlyCategories} onSelectCategory={handleSelectCategory} isMobile={true} />
+                <CategoryList
+                  categories={onlyCategories}
+                  onSelectCategory={handleSelectCategory}
+                  isMobile={true}
+                  isToggleWhenClick={true}
+                />
               </div>
             </nav>
           </div>

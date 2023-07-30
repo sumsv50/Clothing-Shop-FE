@@ -8,9 +8,9 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import './CategoryList.css'
 
-export default function CategoryList({ categories, onSelectCategory, isMobile }) {
+export default function CategoryList({ categories, onSelectCategory, isMobile, isToggleWhenClick }) {
   const [openId, setOpenId] = React.useState(null);
-  const optPros = isMobile ? {
+  const optPros = isToggleWhenClick ? {
     "data-toggle": "collapse",
     "data-target": "#navbarCollapse"
   } : {}
