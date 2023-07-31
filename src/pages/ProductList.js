@@ -88,7 +88,7 @@ export default function ProductList() {
   return (
     <>
       <div className="container-fluid">
-        <div className="row align-items-center py-3 px-xl-5">
+        <div className="row align-items-center py-lg-3 px-xl-5">
           <div className="col-lg-3 d-none d-lg-block">
             <a href="/" className="text-decoration-none">
               <h2 className="m-0 display-5 font-weight-semi-bold branch-desktop">Bảo hộ Phú Nhuận</h2>
@@ -128,7 +128,7 @@ export default function ProductList() {
             <div className="container-fluid pt-2 mb-4">
               <div className="row justify-content-end">
                 <div className="px-xl-5 col-lg-5 col-12 text-left mb-4 mb-lg-0 hotline-container">
-                  <h3>Hotline:</h3>
+                  <h3 className="hotline-title">Hotline:</h3>
                   <h3>
                     <i class="fas fa-phone-alt phone-icon"></i>
                     <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>

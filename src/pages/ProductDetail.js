@@ -43,7 +43,7 @@ export default function ProductDetail() {
   return (
     <>
       <div className="container-fluid">
-        <div className="row align-items-center py-3 px-xl-5">
+        <div className="row align-items-center py-lg-3 px-xl-5">
           <div className="col-lg-3 d-none d-lg-block">
             <Link to="/" className="text-decoration-none">
               <h2 className="m-0 display-5 font-weight-semi-bold branch-desktop">Bảo hộ Phú Nhuận</h2>
@@ -75,7 +75,7 @@ export default function ProductDetail() {
       </div>
 
       <div className="container-fluid mb-4 text-center">
-        <h3>Hotline:</h3>
+        <h3 className="hotline-title">Hotline:</h3>
         <h3>
           <i class="fas fa-phone-alt phone-icon"></i>
           <a className="text-phone-number" href="tel:0924181058">0925.183.068</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-phone-alt phone-icon"></i>

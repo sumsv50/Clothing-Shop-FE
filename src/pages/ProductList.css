@@ -111,10 +111,18 @@
 
 .text-phone-number, .text-phone-number:hover {
   color: black;
-  background-color: yellow;
 }
 
 .phone-icon {
   margin-right: 5px;
   color: #cd0000;
+}
+
+.hotline-title {
+  display: inline-block;
+  padding: 4px 7px;
+  background-color: #cd0000;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 8px;
 }
