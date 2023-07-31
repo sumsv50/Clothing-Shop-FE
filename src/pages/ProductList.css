@@ -1,3 +1,18 @@
+@media (min-width: 768px) {
+  .product-title {
+    height: 38.38px;
+    text-overflow: ellipsis;
+  }
+}
+
+.product-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
 .product-category-section {
   display: inline-block;
   padding: 8px 20px 8px 12px;
@@ -109,7 +124,8 @@
   }
 }
 
-.text-phone-number, .text-phone-number:hover {
+.text-phone-number,
+.text-phone-number:hover {
   color: black;
 }
 
