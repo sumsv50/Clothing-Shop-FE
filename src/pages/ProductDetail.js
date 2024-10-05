@@ -160,9 +160,6 @@ export default function ProductDetail() {
                   <div className="px-xl-0">
                     <p className="mb-md-0 text-center text-md-left text-dark">
                       &copy; <a className="text-dark font-weight-semi-bold" href="#">Bảo hộ Phú Nhuận</a>. All Rights Reserved.
-                      Designed
-                      by
-                      <a className="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a>
                     </p>
                   </div>
                 </div>
